@@ -7,7 +7,7 @@ version(unittest)
 
 alias Helper(alias T) = T;
 
-private template allMembers(T)
+template allMembers(T)
 {
 	enum allMembers = __traits(allMembers, T);
 }
