@@ -5,8 +5,6 @@ version(unittest)
 	import fluent.asserts;
 }
 
-alias Helper(alias T) = T;
-
 template allMembers(T)
 {
 	enum allMembers = __traits(allMembers, T);
