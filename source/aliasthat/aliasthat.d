@@ -1,10 +1,5 @@
 module aliasthat.aliasthat;
 
-version(unittest)
-{
-	import fluent.asserts;
-}
-
 template allMembers(T)
 {
 	enum allMembers = __traits(allMembers, T);
@@ -19,9 +14,9 @@ unittest
 		bool enabled;
 	}
 
-	allMembers!Test.length.should.equal(3);
-	allMembers!Test[0].should.equal("name");
-	[allMembers!Test].should.equal(["name", "id", "enabled"]);
+	assert(allMembers!Test.length == 3);
+	assert(allMembers!Test[0] == "name");
+	assert([allMembers!Test] == ["name", "id", "enabled"]);
 }
 
 template nameOf(alias nameType)
