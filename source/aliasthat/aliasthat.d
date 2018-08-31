@@ -5,6 +5,8 @@ template allMembers(T)
 	enum allMembers = __traits(allMembers, T);
 }
 
+///
+@("allMembers")
 unittest
 {
 	struct Test
@@ -24,6 +26,8 @@ template nameOf(alias nameType)
 	enum string nameOf = __traits(identifier, nameType);
 }
 
+///
+@("nameOf")
 unittest
 {
 	int name;
