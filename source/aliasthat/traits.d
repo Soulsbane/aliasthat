@@ -42,6 +42,6 @@ template nameOf(alias nameType)
 @("nameOf")
 unittest
 {
-	int name;
+	immutable int name;
 	assert(nameOf!name == "name");
 }
