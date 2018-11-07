@@ -45,3 +45,29 @@ unittest
 	immutable int name;
 	assert(nameOf!name == "name");
 }
+
+/**
+	Returns the number of members in type T.
+
+	Params:
+		T = The type to get member count of.
+
+	Returns:
+		Returns the number of members in type T.
+*/
+template memberCount(T)
+{
+	enum memberCount = [__traits(allMembers, T)].length;
+}
+
+unittest
+{
+	struct Person
+	{
+		string name;
+		uint age;
+		string address;
+	}
+
+	assert(memberCount!Person == 3);
+}
