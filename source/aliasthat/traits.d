@@ -71,3 +71,29 @@ unittest
 
 	assert(memberCount!Person == 3);
 }
+
+/**
+	Convience wrapper for returning a new class or any other type's .init.
+
+	Params:
+		T = The type to init.
+	Returns:
+		The type that was initialized.
+*/
+T make(T)()
+{
+    static if(is(T == class)) return new T;
+    else return T.init;
+}
+
+unittest
+{
+	static class GenericClass {}
+	static struct GenericStruct {}
+
+	auto genClass = make!GenericClass;
+	auto genStruct = make!GenericStruct;
+
+	static assert(is(typeof(genClass) == class));
+	static assert(is(typeof(genStruct) == struct));
+}
